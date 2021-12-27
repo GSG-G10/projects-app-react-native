@@ -29,7 +29,11 @@ type Icons = {
   [key: string]: string;
 };
 
-export const ProjectsScreen: FC = () => {
+type ProjectsScreenProps ={
+  navigation : any
+}
+
+export const ProjectsScreen: FC <ProjectsScreenProps> = ({ navigation }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   // icons
   const icons: Icons = {
@@ -83,7 +87,8 @@ export const ProjectsScreen: FC = () => {
               price={ele.price}
               status={ele.status}
               icon={icons[ele.status]}
-              onPress={() => console.log(ele.name)}
+              onPress={() => navigation.navigate('SingleProject', {id : ele.id})
+            }
             />
           );
         })}
@@ -97,14 +102,12 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     backgroundColor: "#f5f5fa",
-    paddingVertical: "50px",
   },
   title: {
     alignSelf: "center",
-    marginVertical: "40px",
     marginHorizontal: "20px",
     width: "80%",
-    fontWeight: 900,
+    fontWeight:'900',
     color: "#4a525e",
   },
   cardsContainer: {

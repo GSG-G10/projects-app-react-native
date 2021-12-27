@@ -6,7 +6,7 @@ const BASE_IMAGE_URI =
 
 type ImageProps = {
   height: number;
-  width: number;
+  width: number ;
    uri: string;
   style?: object;
 }
