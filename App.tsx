@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View,Text } from "react-native";
+import { StyleSheet } from "react-native";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { reducer } from "./store/reducers";
@@ -12,28 +12,6 @@ import { SingleProject } from "./src/screens/Singleproject";
 
 const Stack = createNativeStackNavigator(); 
 const store = createStore(reducer);
-
-const Home = () => {
-  return(
-    <View>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-      <Text>Hello worlde</Text>
-    </View>
-  )
-}
 
 export default function App() {
   
