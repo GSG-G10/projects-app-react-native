@@ -24,7 +24,7 @@ export default function App() {
 
         <Stack.Screen name="Home" component={ProjectsScreen} />
         <Stack.Screen name="SingleProject" component={SingleProject} />
-        <Stack.Screen name="DetailsProjectScreen" component={DetailsProjectScreen} />
+        <Stack.Screen name="Hart Estimate" component={DetailsProjectScreen} />
 
         </Stack.Navigator>
 

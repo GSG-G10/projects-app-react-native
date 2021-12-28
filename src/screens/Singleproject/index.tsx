@@ -13,8 +13,7 @@ type SingleProjectProps ={
 export const SingleProject: FC <SingleProjectProps> = ({navigation , route}) => {
     const { projects } = useSelector((state : any) => state)
     const {id} = route.params;
-    const project = projects.filter((ele : any) => ele.id === id)[0]  
-    console.log(project.addproj)
+    const project = projects.filter((ele : any) => ele.id === id)[0] 
 
   return (
     <View>
@@ -38,10 +37,10 @@ export const SingleProject: FC <SingleProjectProps> = ({navigation , route}) => 
     raised={false}
     iconName={"setting"}
     color={"gray"}
-    onPress={() => navigation.navigate('DetailsProjectScreen',{ add : project.addproj} )}/>
+    onPress={() => navigation.navigate('Hart Estimate',{details : project} )}/>
         <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('DetailsProjectScreen',{ add : project.addproj})}
+        onPress={() => navigation.navigate('Hart Estimate',{details : project})}
       >Specification</TouchableOpacity>
       </View>
       <View style={styles.divisions}>
@@ -49,30 +48,30 @@ export const SingleProject: FC <SingleProjectProps> = ({navigation , route}) => 
     raised={false}
     iconName={"checkcircleo"}
     color={"gray"}
-    onPress={() => navigation.navigate('DetailsProjectScreen',{ add : project.addproj})}/>
+    onPress={() => navigation.navigate('Hart Estimate',{details : project})}/>
         <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('DetailsProjectScreen',{ add : project.addproj})}
+        onPress={() => navigation.navigate('Hart Estimate',{details : project})}
       >Estimate</TouchableOpacity></View>
       <View style={styles.divisions}>
       <Icon
     raised={false}
     iconName={"edit"}
     color={"gray"}
-    onPress={() => navigation.navigate('DetailsProjectScreen',{ add : project.addproj})}/>
+    onPress={() => navigation.navigate('Hart Estimate',{details : project})}/>
         <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('DetailsProjectScreen',{ add : project.addproj})}
+        onPress={() => navigation.navigate('Hart Estimate',{details : project})}
       >Punch List</TouchableOpacity></View>
       <View style={styles.divisions}>
       <Icon
     raised={false}
     iconName={"carryout"}
     color={"gray"}
-    onPress={() => navigation.navigate('DetailsProjectScreen',{ add : project.addproj})}/>
+    onPress={() => navigation.navigate('Hart Estimate',{details : project})}/>
         <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('DetailsProjectScreen',{ add : project.addproj})}
+        onPress={() => navigation.navigate('Hart Estimate',{details : project})}
       >Schedule</TouchableOpacity>
       </View>
       </View>
