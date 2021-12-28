@@ -20,7 +20,7 @@ export default function App() {
     <Provider store={store} >
       <NavigationContainer >
         <StatusBar style="auto" />
-        <Stack.Navigator initialRouteName="SingleProjectScreen" >
+        <Stack.Navigator initialRouteName="Home" >
 
         <Stack.Screen name="Home" component={ProjectsScreen} />
         <Stack.Screen name="SingleProject" component={SingleProject} />
