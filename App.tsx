@@ -9,6 +9,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { ProjectsScreen } from "./src/screens/ProjectsScreen";
 import { SingleProject } from "./src/screens/Singleproject";
+import { DetailsProjectScreen } from "./src/screens/DetailScreen";
 
 const Stack = createNativeStackNavigator(); 
 const store = createStore(reducer);
@@ -23,6 +24,7 @@ export default function App() {
 
         <Stack.Screen name="Home" component={ProjectsScreen} />
         <Stack.Screen name="SingleProject" component={SingleProject} />
+        <Stack.Screen name="Hart Estimate" component={DetailsProjectScreen} />
 
         </Stack.Navigator>
 
