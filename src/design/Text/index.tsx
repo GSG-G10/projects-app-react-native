@@ -8,6 +8,7 @@ type TextComponentProps = {
   h2?: boolean;
   h3?: boolean;
   h4?: boolean;
+  h5?: boolean;
   p?: boolean;
 };
 export const Text: FC<TextComponentProps> = ({
