@@ -1,18 +1,26 @@
-import { initializeApp } from "firebase/app"
-import { getFirestore } from "firebase/firestore"
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import {
+  API_KEY,
+  AUTH_DOMAIN,
+  DATABASE_URL,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER_ID,
+  APP_ID,
+} from "@env";
 
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyAerHNK4kJys3kOpYWA9tkkG6vpfO3okYc",
-  authDomain: "projects-app-904c2.firebaseapp.com",
-  databaseURL: "https://projects-app-904c2-default-rtdb.firebaseio.com",
-  projectId: "projects-app-904c2",
-  storageBucket: "projects-app-904c2.appspot.com",
-  messagingSenderId: "74095581735",
-  appId: "1:74095581735:web:02d2c797ce111150ddcc02"
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  databaseURL: DATABASE_URL,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID,
+  appId: APP_ID,
 };
 
-   // Initialize Firebase
-   export const app = initializeApp(firebaseConfig);
-   export const db = getFirestore();
-   
+// Initialize Firebase
+export const app = initializeApp(firebaseConfig);
+export const db = getFirestore();
