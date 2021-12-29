@@ -105,7 +105,12 @@ export const AddForm: FC<any> = ({ navigation, route }) => {
         </View>
       ))}
       <View style={styles.btnsContainer}>
-        <Button title="Save Changes" loading={loading} onPress={onPress} buttonStyle={{height: 40}} />
+        <Button
+          title="Save Changes"
+          loading={loading}
+          onPress={onPress}
+          buttonStyle={{ height: 40 }}
+        />
         <Button
           title="Add More"
           titleStyle={{ color: "rgba(90, 154, 230, 1)" }}
