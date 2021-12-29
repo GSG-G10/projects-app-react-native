@@ -5,12 +5,8 @@ import { createStore } from "redux";
 import { reducer } from "./store/reducers";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-
-import { ProjectsScreen } from "./src/screens/ProjectsScreen";
-import { SingleProject } from "./src/screens/Singleproject";
-import { DetailsProjectScreen } from "./src/screens/DetailScreen";
 import { LogInScreen } from "./src/screens/LoginScreen";
+import { AddForm, ProjectsScreen, SingleProject, DetailsProjectScreen } from "./src/screens";
 
 const Stack = createNativeStackNavigator(); 
 const store = createStore(reducer);
@@ -27,6 +23,7 @@ export default function App() {
         <Stack.Screen name="SingleProject" component={SingleProject} />
         <Stack.Screen name="Hart Estimate" component={DetailsProjectScreen} />
         <Stack.Screen name="Log In" component={LogInScreen} />
+        <Stack.Screen name="Add Details" component={AddForm} />
 
         </Stack.Navigator>
 
