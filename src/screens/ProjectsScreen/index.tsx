@@ -1,8 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { ScrollView, View, StyleSheet } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { db } from "../../../firebaseConfig";
 
@@ -46,17 +45,19 @@ export const ProjectsScreen: FC <ProjectsScreenProps> = ({ navigation }) => {
   // store data in redux store
   const dispatch = useDispatch();
   const storeData = async () => {
+    
     const data = await getData("projects");
-    const projects = data[0].projects;
+    const projects = data[1].projects;
     if (projects) {
       dispatch(setProjects(projects));
     }
     setIsLoaded(true);
   };
+  const { change } = useSelector((state: any) => state);
   useEffect(() => {
     setIsLoaded(false);
     storeData();
-  }, []);
+  }, [change]);
   // get projects from store
   const { projects } = useSelector((state: any) => state);
 

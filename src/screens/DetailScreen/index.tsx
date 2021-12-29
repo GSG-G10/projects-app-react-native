@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { ScrollView, View, StyleSheet } from "react-native";
+import { useSelector } from "react-redux";
 import { Text, Icon } from "../../design";
 
 type DetailsProjectScreenProps = {
@@ -10,20 +11,33 @@ export const DetailsProjectScreen: FC<DetailsProjectScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { details } = route.params;
-  const project = details.specifications;
-  const keys = Object.keys(project);
+
+  const {projects} = useSelector((state:any) => state)
+  const { id } = route.params;
+  const details = projects.filter((ele: any) => ele.id === id)[0]
+  let project: any;
+  let keys: string[];
+  if (details && details.specifications) {
+    project = details.specifications;
+    keys = Object.keys(project);
+  } else {
+    return (
+      <View>
+        <Text value="There is no details" h2 />
+      </View>
+    );
+  }
 
   return (
     <ScrollView>
-        <View style={{flex:1 , alignSelf:"flex-end" }}>
-      <Icon
-        onPress={() => navigation.navigate('Hart Estimate')}
-        iconName={"plus"}
-        color={"gray"}
-        raised={true}
-      />
-       </View>
+      <View style={{ flex: 1, alignSelf: "flex-end" }}>
+        <Icon
+          onPress={() => navigation.navigate("Add Details", {project: details})}
+          iconName={"plus"}
+          color={"gray"}
+          raised={true}
+        />
+      </View>
       {keys.map((ele: any) => {
         return (
           <View key={ele} style={styles.container}>
@@ -44,8 +58,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   text: {
-      color:"gray",
-      
+    color: "gray",
   },
- 
 });
