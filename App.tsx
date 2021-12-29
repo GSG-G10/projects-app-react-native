@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ProjectsScreen } from "./src/screens/ProjectsScreen";
 import { SingleProject } from "./src/screens/Singleproject";
 import { DetailsProjectScreen } from "./src/screens/DetailScreen";
+import { LogInScreen } from "./src/screens/LoginScreen";
 
 const Stack = createNativeStackNavigator(); 
 const store = createStore(reducer);
@@ -20,11 +21,12 @@ export default function App() {
     <Provider store={store} >
       <NavigationContainer >
         <StatusBar style="auto" />
-        <Stack.Navigator initialRouteName="Home" >
+        <Stack.Navigator initialRouteName="Log In" >
 
         <Stack.Screen name="Home" component={ProjectsScreen} />
         <Stack.Screen name="SingleProject" component={SingleProject} />
         <Stack.Screen name="Hart Estimate" component={DetailsProjectScreen} />
+        <Stack.Screen name="Log In" component={LogInScreen} />
 
         </Stack.Navigator>
 
