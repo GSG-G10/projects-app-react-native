@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: "1rem",
+    padding: 30,
   },
   inputContainer: {
     width: "60%",

@@ -5,6 +5,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 import { Input, Button } from "../../design";
 
+
 type Data = {
   description: string;
   cost: string;
@@ -24,6 +25,8 @@ let initialFields: Data[] = [
   },
 ];
 export const AddForm: FC<any> = ({ navigation, route }) => {
+
+
   const dispatch = useDispatch();
   const { projects } = useSelector((state: any) => state);
 
@@ -128,7 +131,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: "1rem",
+    padding: 20,
   },
   inputContainer: {
     width: "60%",
