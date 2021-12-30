@@ -6,7 +6,7 @@ import { createStore } from "redux";
 import { reducer } from "./store/reducers";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { LogInScreen} from "./src/screens/LoginScreen";
+import { LogInScreen } from "./src/screens/LoginScreen";
 import {
   AddForm,
   ProjectsScreen,
@@ -19,10 +19,10 @@ const store = createStore(reducer);
 
 export default function App() {
   return (
-   <Provider store={store}>
+    <Provider store={store}>
       <NavigationContainer>
         <StatusBar style="auto" />
-        <Stack.Navigator initialRouteName="Log In">
+        <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="Home" component={ProjectsScreen} />
           <Stack.Screen name="SingleProject" component={SingleProject} />
           <Stack.Screen name="Hart Estimate" component={DetailsProjectScreen} />
@@ -40,5 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    fontFamily: "robot",
+    fontWeight: "normal",
   },
 });

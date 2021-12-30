@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import React , { FC, useEffect, useState } from "react";
 import { ScrollView, View, StyleSheet } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,6 +15,7 @@ const getData = async (query: string) => {
   querySnapshot.forEach((doc) => data.push(doc.data()));
   return data;
 };
+
 
 // data types
 type Project = {
@@ -83,13 +84,14 @@ export const ProjectsScreen: FC <ProjectsScreenProps> = ({ navigation }) => {
         {projects.map((ele: Project) => {
           return (
             <Card
-              key={ele.name}
-              title={ele.name}
-              price={ele.price}
-              status={ele.status}
-              icon={icons[ele.status]}
-              onPress={() => navigation.navigate('SingleProject', {id : ele.id})
-            }
+            
+            key={ele.name}
+            title={ele.name}
+            price={ele.price}
+            status={ele.status}
+            icon={icons[ele.status]}
+            onPress={() => navigation.navigate('SingleProject', {id : ele.id})
+          }
             />
           );
         })}
@@ -102,18 +104,33 @@ const styles = StyleSheet.create({
   constainer: {
     width: "100%",
     flex: 1,
-    backgroundColor: "#f5f5fa",
+    backgroundColor: "#fff",
+    fontFamily:'The Nautigal, cursive',
+
   },
   title: {
     alignSelf: "center",
     marginHorizontal: "20px",
+    margin: "20px",
     width: "80%",
     fontWeight:'900',
-    color: "#4a525e",
+    color: "#01011f",
+    fontFamily:'The Nautigal, cursive',
   },
   cardsContainer: {
     width: "100%",
     flex: 1,
     alignItems: "center",
+    
+  },
+  shadow:{
+      shadowColor: "black",
+      shadowOffset: {
+        width: 2,
+        height: 7,
+      },
+      shadowOpacity: 0.41,
+      shadowRadius: 9.11,
+      elevation: 10,
   },
 });

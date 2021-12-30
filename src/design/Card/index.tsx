@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React,{ FC } from "react";
 // eslint-disable-next-line import/namespace
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text } from "../Text";
@@ -32,6 +32,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     backgroundColor: "#fff",
     borderRadius: 10,
+    shadowColor: "black",
+      shadowOffset: {
+        width: 0,
+        height: 7,
+      },
+      shadowOpacity: 0.20,
+      shadowRadius: 8.11,
+      elevation: 14, 
   },
   header: {
     flexDirection: "row",
@@ -39,6 +47,8 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: "#32343b",
+    
+    fontFamily:'The Nautigal, cursive',
   },
   statusContainer: {
     flexDirection: "row",
@@ -49,6 +59,8 @@ const styles = StyleSheet.create({
     color: "#ced1d8",
     paddingHorizontal: 10,
     fontSize: 20,
+
+    fontFamily:'The Nautigal, cursive',
   },
 });
 
