@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React , { useState } from "react";
 import { FC } from "react";
 import { View, ScrollView, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
@@ -109,11 +109,11 @@ export const AddForm: FC<any> = ({ navigation, route }) => {
           title="Save Changes"
           loading={loading}
           onPress={onPress}
-          buttonStyle={{ height: 40 }}
+          buttonStyle={{ borderRadius:50 ,height: 40, backgroundColor: "orange" }}
         />
         <Button
           title="Add More"
-          titleStyle={{ color: "rgba(90, 154, 230, 1)" }}
+          titleStyle={{ color: "orange" }}
           buttonStyle={styles.addMoreStyle}
           loading={loading}
           onPress={addMore}
@@ -147,15 +147,18 @@ const styles = StyleSheet.create({
   },
   labelStyle: {
     marginVertical: 5,
-    fontWeight: 800,
+    fontWeight: "800",
   },
   btnsContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
+    
   },
   addMoreStyle: {
     backgroundColor: "#fff",
-    border: "1px, rgba(90, 154, 230, 1), solid",
+    borderColor:"rgba(90, 154, 230, 1)",
+    borderWidth: 1,
+    borderRadius:50,
   },
 });

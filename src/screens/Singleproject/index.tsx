@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { View, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import { Text, Image, Icon } from "../../design";
 import { useSelector } from "react-redux";
@@ -21,70 +21,70 @@ export const SingleProject: FC<SingleProjectProps> = ({
   return (
     <View>
       <ScrollView>
-        <View style={styles.headertext}>
-          <Text value={project.name} h2 />
-          <Text value="1003762" h4 />
+        <View style={styles.headertext }>
+          <Text value={project.name} h2 style={styles.font} />
+          <Text value="1003762" h4 style={styles.font}/>
         </View>
         <View style={styles.headertext}>
-          <Text value={project.status} style={{ color: "orange" }} />
-          <Text value={project.price} />
+          <Text value={project.status} style={{fontFamily:'The Nautigal, cursive' , color: "orange" }} />
+          <Text value={project.price} style={{fontFamily:'The Nautigal, cursive' , col:"black" }}/>
         </View>
-        <Image height={200} width={415} uri={project.image} />
+        <Image height={200} width={415} uri={project.image} style={{alignSelf:"center"}} />
         <View style={styles.div}>
           <View style={styles.divisions}>
             <Icon
               raised={false}
               iconName={"setting"}
-              color={"gray"}
+              color={"orange"}
               onPress={navigateToDetails}
             />
             <TouchableOpacity
               style={styles.button}
               onPress={navigateToDetails}
             >
-              <Text value="Specification" />
+              <Text value="Specification" style={styles.font}/>
             </TouchableOpacity>
           </View>
           <View style={styles.divisions}>
             <Icon
               raised={false}
               iconName={"checkcircleo"}
-              color={"gray"}
+              color={"orange"}
               onPress={navigateToDetails}
             />
             <TouchableOpacity
               style={styles.button}
               onPress={navigateToDetails}
             >              
-              <Text value="Estimate" />
+              <Text value="Estimate" style={styles.font}/>
             </TouchableOpacity>
           </View>
           <View style={styles.divisions}>
             <Icon
               raised={false}
               iconName={"edit"}
-              color={"gray"}
+              color={"orange"}
               onPress={navigateToDetails}
             />
             <TouchableOpacity
               style={styles.button}
               onPress={navigateToDetails}
             >
-              <Text value="Punch List" />
+              <Text value="Punch List" style={styles.font}/>
             </TouchableOpacity>
           </View>
           <View style={styles.divisions}>
             <Icon
               raised={false}
               iconName={"carryout"}
-              color={"gray"}
+              color={"orange"}
               onPress={navigateToDetails}
             />
             <TouchableOpacity
               style={styles.button}
               onPress={navigateToDetails}
             >
-              <Text value="Schedule" />
+              <Text value="Schedule" style={styles.font}/>
             </TouchableOpacity>
           </View>
         </View>
@@ -99,16 +99,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 20,
   },
+  font:{
+    fontFamily:'The Nautigal, cursive',
+    fontWeight:"bold",
+    fontSize:20,
+  },
   divisions: {
     width: "80%",
     flexDirection: "row",
     alignItems: "center",
-    borderBottomColor: "gray",
+    borderBottomColor: "black",
     borderBottomWidth: 1,
+
+    fontFamily:'The Nautigal, cursive',
   },
   button: {
     margin: 20,
     alignItems: "center",
+    fontFamily:'The Nautigal, cursive',
   },
   div: {
     alignItems: "center",

@@ -1,9 +1,8 @@
-import { FC } from "react";
+import React,{ FC } from "react";
 // eslint-disable-next-line import/namespace
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text } from "../Text";
-import {Icon} from "../Icon"
-
+import { Icon } from "../Icon";
 
 type CardProps = {
   title: string;
@@ -33,13 +32,24 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     backgroundColor: "#fff",
     borderRadius: 10,
+    shadowColor: "black",
+      shadowOffset: {
+        width: 0,
+        height: 7,
+      },
+      shadowOpacity: 0.20,
+      shadowRadius: 8.11,
+      elevation: 14, 
   },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
+    color:"orange"
   },
   headerText: {
     color: "#32343b",
+    
+    fontFamily:'The Nautigal, cursive',
   },
   statusContainer: {
     flexDirection: "row",
@@ -50,6 +60,8 @@ const styles = StyleSheet.create({
     color: "#ced1d8",
     paddingHorizontal: 10,
     fontSize: 20,
+
+    fontFamily:'The Nautigal, cursive',
   },
 });
 
@@ -66,11 +78,7 @@ export const Card: FC<CardProps> = ({
       <Text value={price} h4 style={styles.headerText} />
     </View>
     <View style={styles.statusContainer}>
-      <Icon
-        iconName={icon}
-        color={iconColors[status]}
-        raised={false}
-      />
+      <Icon iconName={icon} color={iconColors[status]} raised={false} />
       <Text value={status} style={styles.statusText} />
     </View>
   </TouchableOpacity>
