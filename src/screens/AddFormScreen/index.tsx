@@ -131,13 +131,15 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
+
+    
     padding: 20,
   },
   inputContainer: {
     width: "60%",
   },
 
-  
+
   inputContainerStyle: {
     marginTop: "10px",
     borderWidth: 0,
