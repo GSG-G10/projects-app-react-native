@@ -1,5 +1,4 @@
-import React , { useState } from "react";
-import { FC } from "react";
+import React, { FC , useState } from "react";
 import { View, ScrollView, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { doc, setDoc } from "firebase/firestore";

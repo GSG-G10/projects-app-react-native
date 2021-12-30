@@ -1,5 +1,4 @@
-import React from "react";
-import { FC } from "react";
+import React, { FC } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text, Icon, Input } from "../../design";
 
