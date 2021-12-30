@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     margin: "20px",
     width: "80%",
     fontWeight:'900',
-    color: "#01011f",
+    color: "black",
     fontFamily:'The Nautigal, cursive',
   },
   cardsContainer: {

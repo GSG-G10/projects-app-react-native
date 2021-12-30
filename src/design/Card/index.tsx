@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
+    color:"orange"
   },
   headerText: {
     color: "#32343b",
