@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
   },
   labelStyle: {
     marginVertical: 5,
-    fontWeight: 800,
+    fontWeight: "800",
   },
   btnsContainer: {
     flexDirection: "row",
@@ -157,7 +157,8 @@ const styles = StyleSheet.create({
   },
   addMoreStyle: {
     backgroundColor: "#fff",
-    border: "1px, rgba(90, 154, 230, 1), solid",
+    borderColor:"rgba(90, 154, 230, 1)",
+    borderWidth: 1,
     borderRadius:50,
   },
 });

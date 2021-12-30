@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   labelStyle: {
     marginVertical: 5,
-    fontWeight: 800,
+    fontWeight: "800",
   },
   btnsContainer: {
     flexDirection: "row",
@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
   },
   addMoreStyle: {
-    backgroundColor: "#fff",
-    border: "1px, rgba(90, 154, 230, 1), solid",
+    backgroundColor: "#fff", 
+    borderColor:"rgba(90, 154, 230, 1)",
+    borderWidth: 1,
   },
 });
