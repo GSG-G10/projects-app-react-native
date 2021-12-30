@@ -66,8 +66,10 @@ export const ProjectsScreen: FC <ProjectsScreenProps> = ({ navigation }) => {
   }, [change]);
   // get projects from store
   const { projects } = useSelector((state: any) => state);
+  let font:string = "RobotoRegular"
   if (!loaded) {
-    return null;
+    
+    font= "cursive" ;
   }
 
   if (!isLoaded) {
