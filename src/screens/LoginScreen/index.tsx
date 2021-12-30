@@ -32,7 +32,7 @@ export const LogInScreen: FC = () => {
           color={"black"}
           raised={false}
         />
-        <Text value="Log In" p style={{ fontSize: 18,marginBottom: 30 }} />
+        <Text value="Log In" p style={{ fontSize: 18 }} />
       </TouchableOpacity>
       <TouchableOpacity style={styles.btn}>
         <Icon
