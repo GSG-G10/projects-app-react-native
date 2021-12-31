@@ -66,11 +66,7 @@ export const ProjectsScreen: FC <ProjectsScreenProps> = ({ navigation }) => {
   }, [change]);
   // get projects from store
   const { projects } = useSelector((state: any) => state);
-  let font:string = "RobotoRegular"
-  if (!loaded) {
-    
-    font= "cursive" ;
-  }
+ 
 
   if (!isLoaded) {
     return (
@@ -115,7 +111,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     backgroundColor: "#fff",
-    fontFamily:'RobotoRegular',
+    fontFamily:'RobotoRegular, cursive',
 
   },
   title: {
@@ -125,7 +121,7 @@ const styles = StyleSheet.create({
     width: "80%",
     fontWeight:'900',
     color: "black",
-    fontFamily:'RobotoRegular',
+    fontFamily:'RobotoRegular, cursive',
   },
   cardsContainer: {
     width: "100%",

@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: "#32343b",
     
-    fontFamily:'RobotoRegular',
+    fontFamily:'RobotoRegular,cursive',
   },
   statusContainer: {
     flexDirection: "row",
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 20,
 
-    fontFamily:'RobotoRegular',
+    fontFamily:'RobotoRegular,cursive',
   },
 });
 

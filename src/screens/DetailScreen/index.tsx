@@ -30,11 +30,7 @@ export const DetailsProjectScreen: FC<DetailsProjectScreenProps> = ({
   const [loaded] = useFonts({
     RobotoRegular: require('../assets/fonts/Roboto-Regular.ttf'),
   });
-  let font:string = "RobotoRegular"
-  if (!loaded) {
-    
-    font= "cursive" ;
-  }
+  
   return (
     <ScrollView style={{ backgroundColor: "#fff" }}>
       <View
@@ -85,7 +81,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   text: {
-    fontFamily: "RobotoRegular",
+    fontFamily: "RobotoRegular, cursive",
     fontWeight: "900",
     borderBottomColor: "black",
   },

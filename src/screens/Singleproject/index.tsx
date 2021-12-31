@@ -21,11 +21,7 @@ export const SingleProject: FC<SingleProjectProps> = ({
   const [loaded] = useFonts({
     RobotoRegular: require('../assets/fonts/Roboto-Regular.ttf'),
   });
-  let font:string = "RobotoRegular"
-  if (!loaded) {
-    
-    font= "cursive" ;
-  }
+ 
   return (
     <View>
       <ScrollView>
@@ -34,8 +30,8 @@ export const SingleProject: FC<SingleProjectProps> = ({
           <Text value="1003762" h4 style={styles.font}/>
         </View>
         <View style={styles.headertext}>
-          <Text value={project.status} style={{fontFamily:'RobotoRegular' , color: "orange" }} />
-          <Text value={project.price} style={{fontFamily:'RobotoRegular' , col:"black" }}/>
+          <Text value={project.status} style={{fontFamily:'RobotoRegular, cursive' , color: "orange" }} />
+          <Text value={project.price} style={{fontFamily:'RobotoRegular, cursive' , col:"black" }}/>
         </View>
         <Image height={200} width={415} uri={project.image} style={{alignSelf:"center"}} />
         <View style={styles.div}>
@@ -108,7 +104,7 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   font:{
-    fontFamily:'RobotoRegular',
+    fontFamily:'RobotoRegular, cursive',
     fontWeight:"bold",
     fontSize:20,
   },
@@ -119,12 +115,12 @@ const styles = StyleSheet.create({
     borderBottomColor: "black",
     borderBottomWidth: 1,
 
-    fontFamily:'RobotoRegular',
+    fontFamily:'RobotoRegular, cursive',
   },
   button: {
     margin: 20,
     alignItems: "center",
-    fontFamily:'RobotoRegular',
+    fontFamily:'RobotoRegular, cursive',
   },
   div: {
     alignItems: "center",
