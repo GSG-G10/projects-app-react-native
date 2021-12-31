@@ -3,7 +3,7 @@ import { View, ScrollView, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
-import { Input, Button } from "../../design";
+import { Input, Button, Text } from "../../design";
 
 
 type Data = {
@@ -46,17 +46,23 @@ export const AddForm: FC<any> = ({ navigation, route }) => {
   const sendData = async () => {
     let specificationsObj: any = {};
     fields.forEach((ele) => {
-      if (ele.cost && ele.description) {
+      console.log(fields);
+      
+      if (ele.cost !== '' && ele.description !== '') {
         specificationsObj[ele.description] = ele.cost;
       } else if (
-        (ele.description && !ele.cost) ||
-        (!ele.description && ele.cost)
+        (ele.description && ele.cost === '') ||
+        (ele.description === '' && ele.cost)
       ) {
         setErrMessage("Please Fill both the description and the cost");
       }
     });
-    if (!specificationsObj) {
-      return setErrMessage("There is details to add");
+    console.log(specificationsObj);
+    
+    if (Object.keys(specificationsObj).length === 0 ) {
+      console.log('errrror');
+      
+      return setErrMessage("There is no details to add");
     }
     const newProjects = projects.map((ele: any) => {
       if (ele.id === project.id) {
@@ -71,15 +77,16 @@ export const AddForm: FC<any> = ({ navigation, route }) => {
         return ele;
       }
     });
-
+    
     // const document = collection(db, "projects");
     const document = doc(db, "projects", "projects");
     await setDoc(document, { projects: newProjects });
     dispatch({ type: "CHANGE" });
+    navigation.navigate("Hart Estimate", { id: project.id });
   };
   const onPress = () => {
+    setErrMessage('')
     sendData();
-    navigation.navigate("Hart Estimate", { id: project.id });
   };
   return (
     <ScrollView style={styles.container}>
@@ -106,6 +113,9 @@ export const AddForm: FC<any> = ({ navigation, route }) => {
           />
         </View>
       ))}
+      {
+        <Text value={errMessage} style={styles.errMessage} />
+      }
       <View style={styles.btnsContainer}>
         <Button
           title="Save Changes"
@@ -167,4 +177,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius:50,
   },
+  errMessage: {
+    color: 'red',
+  }
 });
