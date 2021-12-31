@@ -4,6 +4,8 @@ import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text } from "../Text";
 import { Icon } from "../Icon";
 
+import { useFonts } from 'expo-font';
+
 type CardProps = {
   title: string;
   price: string;
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: "#32343b",
     
-    fontFamily:'The Nautigal, cursive',
+    fontFamily:'RobotoRegular,cursive',
   },
   statusContainer: {
     flexDirection: "row",
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 20,
 
-    fontFamily:'The Nautigal, cursive',
+    fontFamily:'RobotoRegular,cursive',
   },
 });
 

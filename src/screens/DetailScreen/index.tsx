@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { ScrollView, View, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 import { Text, Icon } from "../../design";
+import { useFonts } from 'expo-font';
 
 type DetailsProjectScreenProps = {
   navigation: any;
@@ -26,7 +27,10 @@ export const DetailsProjectScreen: FC<DetailsProjectScreenProps> = ({
       </View>
     );
   }
-
+  const [loaded] = useFonts({
+    RobotoRegular: require('../assets/fonts/Roboto-Regular.ttf'),
+  });
+  
   return (
     <ScrollView style={{ backgroundColor: "#fff" }}>
       <View
@@ -77,7 +81,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   text: {
-    fontFamily: "The Nautigal, cursive",
+    fontFamily: "RobotoRegular, cursive",
     fontWeight: "900",
     borderBottomColor: "black",
   },

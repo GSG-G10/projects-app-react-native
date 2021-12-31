@@ -2,6 +2,7 @@ import React , { FC, useEffect, useState } from "react";
 import { ScrollView, View, StyleSheet } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
+import { useFonts } from 'expo-font';
 
 import { db } from "../../../firebaseConfig";
 
@@ -34,6 +35,10 @@ type ProjectsScreenProps ={
 }
 
 export const ProjectsScreen: FC <ProjectsScreenProps> = ({ navigation }) => {
+  const [loaded] = useFonts({
+    RobotoRegular: require('../assets/fonts/Roboto-Regular.ttf'),
+  });
+  
   const [isLoaded, setIsLoaded] = useState(false);
   // icons
   const icons: Icons = {
@@ -61,6 +66,7 @@ export const ProjectsScreen: FC <ProjectsScreenProps> = ({ navigation }) => {
   }, [change]);
   // get projects from store
   const { projects } = useSelector((state: any) => state);
+ 
 
   if (!isLoaded) {
     return (
@@ -105,7 +111,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     backgroundColor: "#fff",
-    fontFamily:'The Nautigal, cursive',
+    fontFamily:'RobotoRegular, cursive',
 
   },
   title: {
@@ -115,7 +121,7 @@ const styles = StyleSheet.create({
     width: "80%",
     fontWeight:'900',
     color: "black",
-    fontFamily:'The Nautigal, cursive',
+    fontFamily:'RobotoRegular, cursive',
   },
   cardsContainer: {
     width: "100%",

@@ -1,5 +1,4 @@
-import React from "react";
-import { FC } from "react";
+import React, { FC } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text, Icon, Input } from "../../design";
 
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: "1rem",
+    padding: 30,
   },
   inputContainer: {
     width: "60%",
