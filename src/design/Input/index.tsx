@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { View, TextInput } from "react-native";
-import { Text } from "..";
+import { Text } from "../Text";
 
 type InputProps = {
   label: string;

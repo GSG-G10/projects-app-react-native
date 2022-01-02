@@ -1,10 +1,7 @@
 import React,{ FC } from "react";
-// eslint-disable-next-line import/namespace
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text } from "../Text";
 import { Icon } from "../Icon";
-
-import { useFonts } from 'expo-font';
 
 type CardProps = {
   title: string;
@@ -50,8 +47,6 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: "#32343b",
-    
-    fontFamily:'RobotoRegular,cursive',
   },
   statusContainer: {
     flexDirection: "row",
@@ -62,8 +57,6 @@ const styles = StyleSheet.create({
     color: "#ced1d8",
     paddingHorizontal: 10,
     fontSize: 20,
-
-    fontFamily:'RobotoRegular,cursive',
   },
 });
 

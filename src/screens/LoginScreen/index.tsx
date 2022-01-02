@@ -1,30 +1,63 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text, Icon, Input } from "../../design";
+import { auth } from "../../../firebaseConfig";
+type loginProps = {
+  navigation: any
+}
+export const LogInScreen: FC<loginProps> = ({navigation}) => {
+  const [userInfo, setUserInfo] = useState({
+    email: '',
+    password: ''
+  })
 
-export const LogInScreen: FC = () => {
+  const signIn = async () => {
+    try {
+      const {user} = await signInWithEmailAndPassword(auth, userInfo.email, userInfo.password)
+      console.log(user);
+      navigation.navigate('Home')
+      
+    } catch(err : any) {
+      console.log(err.code, err.message);
+      
+    }
+  }
+
+  const sendRequest = () => {
+    signIn()
+  }
+  // signInWithEmailAndPassword(auth, 'sabbahahmad093@gmail.com', '123456789**')
+  // .then((userCredential) => {
+  //   // Signed in 
+  //   const user = userCredential.user;
+  //   console.log(user);
+    
+  //   // ...
+  // })
+  // .catch((error) => {
+  //   console.log(error.message);
+    
+  // });
+  
   return (
     <View style={styles.container}>
       <Text value="Log In" h2 style={{ marginBottom: 30 }} />
       <Input
-            label="Name"
+            label="Email"
             containerStyle={styles.inputContainer}
             inputStyle={styles.input}
             labelStyle={styles.labelStyle}
-            onChangeText={({ nativeEvent: { text } }) =>
-              null
-            }
+            onChangeText={({ nativeEvent: { text } }) => setUserInfo(prev => ({...prev, email: text}))}
           />
       <Input
             label="Password"
           containerStyle={{...styles.inputContainer , width:"60%",marginBottom: 30}}
             inputStyle={styles.input}
             labelStyle={styles.labelStyle}
-            onChangeText={({ nativeEvent: { text } }) =>
-              null
-            }
+            onChangeText={({ nativeEvent: { text } }) => setUserInfo(prev => ({...prev, password: text}))}
           />
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity style={styles.btn} onPress={sendRequest}>
         <Icon
           onPress={() => null}
           iconName={"login"}

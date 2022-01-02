@@ -1,13 +1,13 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { View, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import { Text, Image, Icon } from "../../design";
 import { useSelector } from "react-redux";
-import { useFonts } from 'expo-font';
 
 type SingleProjectProps = {
   navigation: any;
   route: any;
 };
+
 
 export const SingleProject: FC<SingleProjectProps> = ({
   navigation,
@@ -18,10 +18,6 @@ export const SingleProject: FC<SingleProjectProps> = ({
   const project = projects.filter((ele: any) => ele.id === id)[0]
   
   const navigateToDetails = () => navigation.navigate("Hart Estimate", { id: project.id })
-  const [loaded] = useFonts({
-    RobotoRegular: require('../assets/fonts/Roboto-Regular.ttf'),
-  });
- 
   return (
     <View>
       <ScrollView>
@@ -30,8 +26,8 @@ export const SingleProject: FC<SingleProjectProps> = ({
           <Text value="1003762" h4 style={styles.font}/>
         </View>
         <View style={styles.headertext}>
-          <Text value={project.status} style={{fontFamily:'RobotoRegular, cursive' , color: "orange" }} />
-          <Text value={project.price} style={{fontFamily:'RobotoRegular, cursive' , col:"black" }}/>
+          <Text value={project.status} style={{ color: "orange" }} />
+          <Text value={project.price} style={{ color:"black" }}/>
         </View>
         <Image height={200} width={415} uri={project.image} style={{alignSelf:"center"}} />
         <View style={styles.div}>
@@ -104,7 +100,6 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   font:{
-    fontFamily:'RobotoRegular, cursive',
     fontWeight:"bold",
     fontSize:20,
   },
@@ -114,13 +109,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderBottomColor: "black",
     borderBottomWidth: 1,
-
-    fontFamily:'RobotoRegular, cursive',
   },
   button: {
     margin: 20,
     alignItems: "center",
-    fontFamily:'RobotoRegular, cursive',
   },
   div: {
     alignItems: "center",
