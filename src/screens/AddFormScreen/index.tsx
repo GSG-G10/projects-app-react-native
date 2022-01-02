@@ -79,6 +79,7 @@ export const AddForm: FC<any> = ({ navigation, route }) => {
     const document = doc(db, "projects", "projects");
     await setDoc(document, { projects: newProjects });
     dispatch({ type: "CHANGE" });
+    setFields(initialFields)
     navigation.navigate("Hart Estimate", { id: project.id });
   };
   const onPress = () => {
