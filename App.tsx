@@ -23,7 +23,7 @@ export default function App() {
       <NavigationContainer>
         <StatusBar style="auto" />
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={ProjectsScreen} />
+          <Stack.Screen name="Home" component={ProjectsScreen} options={{ headerShown: false }}/>
           <Stack.Screen name="SingleProject" component={SingleProject} />
           <Stack.Screen name="Hart Estimate" component={DetailsProjectScreen} />
           <Stack.Screen name="Log In" component={LogInScreen} />

@@ -46,7 +46,6 @@ export const AddForm: FC<any> = ({ navigation, route }) => {
   const sendData = async () => {
     let specificationsObj: any = {};
     fields.forEach((ele) => {
-      console.log(fields);
       
       if (ele.cost !== '' && ele.description !== '') {
         specificationsObj[ele.description] = ele.cost;
@@ -57,10 +56,8 @@ export const AddForm: FC<any> = ({ navigation, route }) => {
         setErrMessage("Please Fill both the description and the cost");
       }
     });
-    console.log(specificationsObj);
     
     if (Object.keys(specificationsObj).length === 0 ) {
-      console.log('errrror');
       
       return setErrMessage("There is no details to add");
     }
