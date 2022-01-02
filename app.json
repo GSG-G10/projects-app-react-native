@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "projects-manager",
-    "slug": "projects-manager",
+    "name": "projects-app-react-native",
+    "slug": "projects-manager-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,8 +24,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "versionCode": 1,
-      "package": "com.ahmadsabbah.projectsmanagerapp"
+      "versionCode":1
     },
     "web": {
       "favicon": "./assets/favicon.png"
