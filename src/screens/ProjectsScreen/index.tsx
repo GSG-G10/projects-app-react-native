@@ -1,5 +1,5 @@
 import React , { FC, useEffect, useState } from "react";
-import { ScrollView, View, StyleSheet } from "react-native";
+import { ScrollView, View, StyleSheet, StatusBar } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -66,6 +66,7 @@ export const ProjectsScreen: FC <ProjectsScreenProps> = ({ navigation }) => {
   if (!isLoaded) {
     return (
       <View>
+        <StatusBar />
         <Text value="Loading ..." h3 />
       </View>
     );
@@ -73,6 +74,7 @@ export const ProjectsScreen: FC <ProjectsScreenProps> = ({ navigation }) => {
   if (isLoaded && !projects.length) {
     return (
       <View>
+        <StatusBar />
         <Text value="There is no data" h3 />
       </View>
     );

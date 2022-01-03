@@ -1,6 +1,5 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { reducer } from "./store/reducers";
@@ -21,7 +20,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <StatusBar style="auto" />
+        <StatusBar />
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="Home" component={ProjectsScreen} options={{ headerShown: false }}/>
           <Stack.Screen name="SingleProject" component={SingleProject} />
