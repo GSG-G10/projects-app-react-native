@@ -1,15 +1,13 @@
-import React, { FC, useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useDispatch } from "react-redux";
 import { createAuth } from "../../store/actions";
-import { Text, Icon, Input } from "../../design";
-import { auth as fireBaseAuth } from "../../../firebaseConfig";
-type loginProps = {
-  navigation: any;
-};
-export const LogInScreen: FC<loginProps> = ({ navigation }) => {
+import { auth } from "../../../firebaseConfig";
+import { Icon, Input, Text } from "../../design";
+
+export const Signup = ({ navigation }: { navigation: any }) => {
   const dispatch = useDispatch();
   const [userInfo, setUserInfo] = useState({
     email: "",
@@ -17,12 +15,12 @@ export const LogInScreen: FC<loginProps> = ({ navigation }) => {
   });
   const [errMessage, setErrMessage] = useState("");
   const signIn = async () => {
-    if (userInfo.email !== "" && userInfo.password !== "") {
+    if (userInfo.email !== "" && userInfo.email !== "") {
       try {
         const {
           user: { accessToken, email },
-        }: any = await signInWithEmailAndPassword(
-          fireBaseAuth,
+        }: any = await createUserWithEmailAndPassword(
+          auth,
           userInfo.email,
           userInfo.password
         );
@@ -32,7 +30,8 @@ export const LogInScreen: FC<loginProps> = ({ navigation }) => {
         );
         dispatch(createAuth({ email, accessToken }));
       } catch (err: any) {
-        setErrMessage("Invalid Email or Password");
+        console.log(err.code, err.message);
+        setErrMessage("Email is already in use");
       }
     } else {
       setErrMessage("You must fill all fields");
@@ -42,18 +41,17 @@ export const LogInScreen: FC<loginProps> = ({ navigation }) => {
   const sendRequest = () => {
     signIn();
   };
-
   return (
     <View style={styles.container}>
-      <Text value="Log In" h2 style={{ marginBottom: 30 }} />
+      <Text value="Sign Up" h2 style={{ marginBottom: 30 }} />
       <Input
         label="Email"
         containerStyle={styles.inputContainer}
         inputStyle={styles.input}
         labelStyle={styles.labelStyle}
         onChangeText={({ nativeEvent: { text } }) => {
-          setErrMessage("");
           setUserInfo((prev) => ({ ...prev, email: text }));
+          setErrMessage("");
         }}
       />
       <Input
@@ -66,8 +64,8 @@ export const LogInScreen: FC<loginProps> = ({ navigation }) => {
         inputStyle={styles.input}
         labelStyle={styles.labelStyle}
         onChangeText={({ nativeEvent: { text } }) => {
-          setErrMessage("");
           setUserInfo((prev) => ({ ...prev, password: text }));
+          setErrMessage("");
         }}
       />
       <Text value={errMessage} style={styles.errMessage} />
@@ -78,13 +76,13 @@ export const LogInScreen: FC<loginProps> = ({ navigation }) => {
           color={"black"}
           raised={false}
         />
-        <Text value="Log In" p style={{ fontSize: 18 }} />
+        <Text value="Sign Up" p style={{ fontSize: 18 }} />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.btn}
-        onPress={() => navigation.navigate("Sign Up")}
+        onPress={() => navigation.navigate("Log In")}
       >
-        <Text value="Create Account" p style={{ fontSize: 18 }} />
+        <Text value="Log in" p style={{ fontSize: 18 }} />
       </TouchableOpacity>
     </View>
   );
