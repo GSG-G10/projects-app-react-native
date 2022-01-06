@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { Button as RNEButton } from "react-native-elements";
 import { StyleSheet } from "react-native";
 
-
 type ButtonProps = {
   title: string;
   containerStyle?: object;

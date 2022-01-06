@@ -1,10 +1,9 @@
-import React, { FC , useState } from "react";
+import React, { FC, useState } from "react";
 import { View, ScrollView, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 import { Input, Button, Text } from "../../design";
-
 
 type Data = {
   description: string;
@@ -25,8 +24,6 @@ let initialFields: Data[] = [
   },
 ];
 export const AddForm: FC<any> = ({ navigation, route }) => {
-
-
   const dispatch = useDispatch();
   const { projects } = useSelector((state: any) => state);
 
@@ -44,21 +41,21 @@ export const AddForm: FC<any> = ({ navigation, route }) => {
 
   // sending request to update data
   const sendData = async () => {
+    setLoading(true);
     let specificationsObj: any = {};
     fields.forEach((ele) => {
-      
-      if (ele.cost !== '' && ele.description !== '') {
+      if (ele.cost !== "" && ele.description !== "") {
         specificationsObj[ele.description] = ele.cost;
       } else if (
-        (ele.description && ele.cost === '') ||
-        (ele.description === '' && ele.cost)
+        (ele.description && ele.cost === "") ||
+        (ele.description === "" && ele.cost)
       ) {
         setErrMessage("Please Fill both the description and the cost");
       }
     });
-    
-    if (Object.keys(specificationsObj).length === 0 ) {
-      
+
+    if (Object.keys(specificationsObj).length === 0) {
+      setLoading(false);
       return setErrMessage("There is no details to add");
     }
     const newProjects = projects.map((ele: any) => {
@@ -74,16 +71,17 @@ export const AddForm: FC<any> = ({ navigation, route }) => {
         return ele;
       }
     });
-    
+
     // const document = collection(db, "projects");
     const document = doc(db, "projects", "projects");
     await setDoc(document, { projects: newProjects });
+    setLoading(false);
     dispatch({ type: "CHANGE" });
-    setFields(initialFields)
+    setFields(initialFields);
     navigation.navigate("Hart Estimate", { id: project.id });
   };
   const onPress = () => {
-    setErrMessage('')
+    setErrMessage("");
     sendData();
   };
   return (
@@ -111,15 +109,17 @@ export const AddForm: FC<any> = ({ navigation, route }) => {
           />
         </View>
       ))}
-      {
-        <Text value={errMessage} style={styles.errMessage} />
-      }
+      {<Text value={errMessage} style={styles.errMessage} />}
       <View style={styles.btnsContainer}>
         <Button
           title="Save Changes"
           loading={loading}
           onPress={onPress}
-          buttonStyle={{ borderRadius:50 ,height: 40, backgroundColor: "orange" }}
+          buttonStyle={{
+            borderRadius: 50,
+            height: 40,
+            backgroundColor: "orange",
+          }}
         />
         <Button
           title="Add More"
@@ -140,13 +140,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
 
-    
     padding: 20,
   },
   inputContainer: {
     width: "60%",
   },
-
 
   inputContainerStyle: {
     marginTop: "10px",
@@ -167,15 +165,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
-    
   },
   addMoreStyle: {
     backgroundColor: "#fff",
-    borderColor:"rgba(90, 154, 230, 1)",
+    borderColor: "rgba(90, 154, 230, 1)",
     borderWidth: 1,
-    borderRadius:50,
+    borderRadius: 50,
   },
   errMessage: {
-    color: 'red',
-  }
+    color: "red",
+  },
 });

@@ -5,11 +5,4 @@ import { Card } from "./Card";
 import { Image } from "./Image";
 import { Input } from "./Input";
 
-export {
-    Text,
-    Icon,
-    Button,
-    Card,
-    Image,
-    Input,
-}
+export { Text, Icon, Button, Card, Image, Input };

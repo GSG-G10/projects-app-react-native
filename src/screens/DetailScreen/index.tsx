@@ -27,7 +27,7 @@ export const DetailsProjectScreen: FC<DetailsProjectScreenProps> = ({
       </View>
     );
   }
-  
+
   return (
     <ScrollView style={{ backgroundColor: "#fff" }}>
       <View
@@ -40,7 +40,7 @@ export const DetailsProjectScreen: FC<DetailsProjectScreenProps> = ({
           justifyContent: "space-around",
         }}
       >
-        <Text value="Add to prject" h2 style={styles.text } />
+        <Text value="Add to prject" h2 style={styles.text} />
 
         <Icon
           onPress={() =>
