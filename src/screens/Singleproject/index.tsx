@@ -8,28 +8,33 @@ type SingleProjectProps = {
   route: any;
 };
 
-
 export const SingleProject: FC<SingleProjectProps> = ({
   navigation,
   route,
 }) => {
   const { projects } = useSelector((state: any) => state);
   const { id } = route.params;
-  const project = projects.filter((ele: any) => ele.id === id)[0]
-  
-  const navigateToDetails = () => navigation.navigate("Hart Estimate", { id: project.id })
+  const project = projects.filter((ele: any) => ele.id === id)[0];
+
+  const navigateToDetails = () =>
+    navigation.navigate("Hart Estimate", { id: project.id });
   return (
     <View>
       <ScrollView>
-        <View style={styles.headertext }>
+        <View style={styles.headertext}>
           <Text value={project.name} h2 style={styles.font} />
-          <Text value="1003762" h4 style={styles.font}/>
+          <Text value="1003762" h4 style={styles.font} />
         </View>
         <View style={styles.headertext}>
           <Text value={project.status} style={{ color: "orange" }} />
-          <Text value={project.price} style={{ color:"black" }}/>
+          <Text value={project.price} style={{ color: "black" }} />
         </View>
-        <Image height={200} width={415} uri={project.image} style={{alignSelf:"center"}} />
+        <Image
+          height={200}
+          width={415}
+          uri={project.image}
+          style={{ alignSelf: "center" }}
+        />
         <View style={styles.div}>
           <View style={styles.divisions}>
             <Icon
@@ -38,11 +43,8 @@ export const SingleProject: FC<SingleProjectProps> = ({
               color={"orange"}
               onPress={navigateToDetails}
             />
-            <TouchableOpacity
-              style={styles.button}
-              onPress={navigateToDetails}
-            >
-              <Text value="Specification" style={styles.font}/>
+            <TouchableOpacity style={styles.button} onPress={navigateToDetails}>
+              <Text value="Specification" style={styles.font} />
             </TouchableOpacity>
           </View>
           <View style={styles.divisions}>
@@ -52,11 +54,8 @@ export const SingleProject: FC<SingleProjectProps> = ({
               color={"orange"}
               onPress={navigateToDetails}
             />
-            <TouchableOpacity
-              style={styles.button}
-              onPress={navigateToDetails}
-            >              
-              <Text value="Estimate" style={styles.font}/>
+            <TouchableOpacity style={styles.button} onPress={navigateToDetails}>
+              <Text value="Estimate" style={styles.font} />
             </TouchableOpacity>
           </View>
           <View style={styles.divisions}>
@@ -66,11 +65,8 @@ export const SingleProject: FC<SingleProjectProps> = ({
               color={"orange"}
               onPress={navigateToDetails}
             />
-            <TouchableOpacity
-              style={styles.button}
-              onPress={navigateToDetails}
-            >
-              <Text value="Punch List" style={styles.font}/>
+            <TouchableOpacity style={styles.button} onPress={navigateToDetails}>
+              <Text value="Punch List" style={styles.font} />
             </TouchableOpacity>
           </View>
           <View style={styles.divisions}>
@@ -80,11 +76,8 @@ export const SingleProject: FC<SingleProjectProps> = ({
               color={"orange"}
               onPress={navigateToDetails}
             />
-            <TouchableOpacity
-              style={styles.button}
-              onPress={navigateToDetails}
-            >
-              <Text value="Schedule" style={styles.font}/>
+            <TouchableOpacity style={styles.button} onPress={navigateToDetails}>
+              <Text value="Schedule" style={styles.font} />
             </TouchableOpacity>
           </View>
         </View>
@@ -99,9 +92,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 20,
   },
-  font:{
-    fontWeight:"bold",
-    fontSize:20,
+  font: {
+    fontWeight: "bold",
+    fontSize: 20,
   },
   divisions: {
     width: "80%",

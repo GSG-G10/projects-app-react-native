@@ -1,4 +1,4 @@
-import React,{ FC } from "react";
+import React, { FC } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text } from "../Text";
 import { Icon } from "../Icon";
@@ -22,44 +22,6 @@ const iconColors: Colors = {
   "Estimate Sent": "#63c0df",
 };
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    marginVertical: 5,
-    width: "90%",
-    height: 150,
-    justifyContent: "space-around",
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    shadowColor: "black",
-      shadowOffset: {
-        width: 0,
-        height: 7,
-      },
-      shadowOpacity: 0.20,
-      shadowRadius: 8.11,
-      elevation: 14, 
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    color:"orange"
-  },
-  headerText: {
-    color: "#32343b",
-  },
-  statusContainer: {
-    flexDirection: "row",
-    height: "50%",
-    alignItems: "center",
-  },
-  statusText: {
-    color: "#ced1d8",
-    paddingHorizontal: 10,
-    fontSize: 20,
-  },
-});
-
 export const Card: FC<CardProps> = ({
   title,
   price,
@@ -78,3 +40,41 @@ export const Card: FC<CardProps> = ({
     </View>
   </TouchableOpacity>
 );
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    marginVertical: 5,
+    width: "90%",
+    height: 150,
+    justifyContent: "space-around",
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    shadowColor: "black",
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 8.11,
+    elevation: 14,
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    color: "orange",
+  },
+  headerText: {
+    color: "#32343b",
+  },
+  statusContainer: {
+    flexDirection: "row",
+    height: "50%",
+    alignItems: "center",
+  },
+  statusText: {
+    color: "#ced1d8",
+    paddingHorizontal: 10,
+    fontSize: 20,
+  },
+});
