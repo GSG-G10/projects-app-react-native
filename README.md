@@ -4,18 +4,26 @@
 ## User Story Video
 
 
-https://user-images.githubusercontent.com/76879976/147928873-fc7f5f12-1fe1-4c2a-8fd7-381bf4407038.mp4
+
+https://user-images.githubusercontent.com/76879976/148568198-40d853b0-54f5-4621-97db-7bfc9f48bcd1.mp4
+
+
 
 
 ## Screen Shots
-* Screen 1 : 
-  * <img src='https://user-images.githubusercontent.com/76879976/147928935-39501fe1-b78c-41be-97c4-14051d246809.jpg' width=100/> 
+* Projects :
+  * <img src='https://user-images.githubusercontent.com/76879976/148568458-250ef832-8d3c-49c7-8ed9-4acf4675cef7.jpg' width=100/> 
    
-* Screen 2 : 
-  * <img src='https://user-images.githubusercontent.com/76879976/147928924-576d82ac-0049-44cc-b813-f78c9949cf9a.jpg' width=100/> 
+* Single Project :
+  * <img src='https://user-images.githubusercontent.com/76879976/148568552-5b79dbf4-0b9d-4c30-a9a3-46f6e5e7f217.jpg' width=100/> 
    
-* Screen 3 : 
-  * <img src='https://user-images.githubusercontent.com/76879976/147928918-9e5361ba-0680-48c2-861b-d134b567436a.jpg' width=100/> 
+* Details :
+  * <img src='https://user-images.githubusercontent.com/76879976/148568677-9d34570a-5e9b-4566-9c22-00ef57840795.jpg' width=100/> 
    
-* Screen 4 : 
-  * <img src='https://user-images.githubusercontent.com/76879976/147928912-9ece597c-09ef-4d99-af69-00887ae16a3f.jpg' width=100/> 
+* Add Details : 
+  * <img src='https://user-images.githubusercontent.com/76879976/148568693-03a25310-79df-4669-8b01-e6a360d50661.jpg' width=100/> 
+
+* Chat: 
+  * <img src='https://user-images.githubusercontent.com/76879976/148568723-d6ca5998-2761-444d-a128-ee4394af2ccb.jpg' width=100/> 
+  * <img src='https://user-images.githubusercontent.com/76879976/148568741-6441f123-ca46-4294-8973-061f474f6cae.jpg' width=100/>
+
