@@ -1,6 +1,6 @@
 # Projects Manager
 A mobile app that allows users to post their projects, post details about their projects, add more details , and chat with their customers 
-### <a href='https://expo.dev/artifacts/3dabcf91-7fc7-4c27-a5cf-007e7a04467f'>Download the App.apk here</a>
+### <a href='https://expo.dev/artifacts/ce0fb2ed-4541-4cf5-ae19-e7518d657550'>Download the App.apk here</a>
 
 ## Team Members: 
  1. Ahmad Sabbah
@@ -40,4 +40,10 @@ https://user-images.githubusercontent.com/76879976/148568198-40d853b0-54f5-4621-
 * Chat: 
   * <img src='https://user-images.githubusercontent.com/76879976/148568723-d6ca5998-2761-444d-a128-ee4394af2ccb.jpg' width=100/> 
   * <img src='https://user-images.githubusercontent.com/76879976/148568741-6441f123-ca46-4294-8973-061f474f6cae.jpg' width=100/>
+
+* Auth 
+  * <img src='https://user-images.githubusercontent.com/76879976/148579941-549b86cb-0ac8-4536-aed6-49532b301a8e.jpg' width=100/>
+  * <img src='https://user-images.githubusercontent.com/76879976/148579954-28727851-9bf3-4fd6-9be4-4d35394042ed.jpg' width=100/>
+
+
 
