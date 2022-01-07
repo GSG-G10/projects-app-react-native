@@ -1,5 +1,19 @@
-# projects-app-react-native
+# Projects Manager
+A mobile app that allows users to post their projects, post details about their projects, add more details , and chat with their customers 
 ### <a href='https://expo.dev/artifacts/3dabcf91-7fc7-4c27-a5cf-007e7a04467f'>Download the App.apk here</a>
+
+## Team Members: 
+ 1. Ahmad Sabbah
+ 2. Nadia Tamimi
+
+## Tech Stack: 
+* React Native
+* Type Script 
+* Firebase 
+* Redux
+* react-native-elements (UI)
+* React Native Stack (Navigation)
+* React Native Bottom Navigation 
 
 ## User Story Video
 
