@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { View, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import { Text, Image, Icon } from "../../design";
 import { useSelector } from "react-redux";
@@ -15,7 +15,9 @@ export const SingleProject: FC<SingleProjectProps> = ({
   const { projects } = useSelector((state: any) => state);
   const { id } = route.params;
   const project = projects.filter((ele: any) => ele.id === id)[0];
-
+  useEffect(() => {
+    navigation.setOptions({ title: project.name });
+  }, [])
   const navigateToDetails = () =>
     navigation.navigate("Hart Estimate", { id: project.id });
   return (
