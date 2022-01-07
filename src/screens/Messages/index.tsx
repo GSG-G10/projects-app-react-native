@@ -11,9 +11,11 @@ export const MessagesScreen = ({
   route: any;
 }) => {
   const { user } = route.params;
-  if (user.username) {
-    navigation.setOptions({ title: user.username });
-  }
+  useEffect(() => {
+      if (user.username) {
+        navigation.setOptions({ title: user.username });
+      }
+  }, [])
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
