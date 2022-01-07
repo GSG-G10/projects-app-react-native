@@ -5,14 +5,15 @@ import { SingleProject } from "./Singleproject";
 import { Signup } from "./SignUpScreen";
 import { LogInScreen } from "./LoginScreen";
 import { ChatScreen } from "./Chat";
-
+import { MessagesScreen } from "./Messages";
 
 export {
-    AddForm,
-    ProjectsScreen,
-    DetailsProjectScreen,
-    SingleProject,
-    Signup,
-    LogInScreen,
-    ChatScreen
-}
+  AddForm,
+  ProjectsScreen,
+  DetailsProjectScreen,
+  SingleProject,
+  Signup,
+  LogInScreen,
+  ChatScreen,
+  MessagesScreen,
+};
