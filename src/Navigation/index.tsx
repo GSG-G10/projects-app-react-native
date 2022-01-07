@@ -40,7 +40,7 @@ export const Navigation = () => {
       <Tab.Navigator
         initialRouteName="Projects"
         screenOptions={{
-          tabBarActiveTintColor: "#42f44b",
+          tabBarActiveTintColor: "orange",
         }}
       >
         <Tab.Screen
@@ -55,10 +55,11 @@ export const Navigation = () => {
           }}
         />
         <Tab.Screen
-          name="Chat"
+          name="Chats"
           component={Object.keys(user)?.length !== 0 ? ChatNav : AuthNav}
           options={{
             tabBarLabel: "Messages",
+            headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <Icon iconName="message1" color={color} raised={false} />
             ),
