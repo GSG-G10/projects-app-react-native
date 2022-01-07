@@ -62,16 +62,14 @@ export const ProjectsScreen: FC<ProjectsScreenProps> = ({ navigation }) => {
 
   if (!isLoaded) {
     return (
-      <View>
-        <StatusBar />
+      <View style={styles.errorMsg}>
         <Text value="Loading ..." h3 />
       </View>
     );
   }
   if (isLoaded && !projects.length) {
     return (
-      <View>
-        <StatusBar />
+      <View style={styles.errorMsg}>
         <Text value="There is no data" h3 />
       </View>
     );
@@ -127,5 +125,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.41,
     shadowRadius: 9.11,
     elevation: 10,
+  },
+  errorMsg: {
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
