@@ -4,9 +4,9 @@ import { Image as RNImage, View, ActivityIndicator } from "react-native";
 const BASE_IMAGE_URI = "https://comnplayscience.eu/app/images/notfound.png";
 
 type ImageProps = {
-  height: number;
-  width: number;
-  uri: string;
+  height?: number;
+  width?: number;
+  uri?: string;
   style?: object;
 };
 
