@@ -42,8 +42,8 @@ https://user-images.githubusercontent.com/76879976/148568198-40d853b0-54f5-4621-
   * <img src='https://user-images.githubusercontent.com/76879976/148568741-6441f123-ca46-4294-8973-061f474f6cae.jpg' width=100/>
 
 * Auth 
-  * <img src='https://user-images.githubusercontent.com/76879976/148579941-549b86cb-0ac8-4536-aed6-49532b301a8e.jpg' width=100/>
-  * <img src='https://user-images.githubusercontent.com/76879976/148579954-28727851-9bf3-4fd6-9be4-4d35394042ed.jpg' width=100/>
+  * <img src='https://user-images.githubusercontent.com/76879976/148993479-539a2426-2d73-4e95-a4e1-ebb19f70f1b4.jpg' width=100/>
+  * <img src='https://user-images.githubusercontent.com/76879976/148993439-fbc2498d-bcf3-487f-91e8-7d436fc3eb5f.jpg' width=100/>
 
 
 
