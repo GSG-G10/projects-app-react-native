@@ -1,37 +1,49 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { View, StyleSheet } from "react-native";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useDispatch } from "react-redux";
 import { createAuth } from "../../store/actions";
 import { auth } from "../../../firebaseConfig";
-import { Icon, Input, Text } from "../../design";
+import { Input, Text, Button } from "../../design";
 
 export const Signup = ({ navigation }: { navigation: any }) => {
   const dispatch = useDispatch();
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
+    name: "",
   });
   const [errMessage, setErrMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const signIn = async () => {
-    if (userInfo.email !== "" && userInfo.email !== "") {
+    if (
+      userInfo.email !== "" &&
+      userInfo.email !== "" &&
+      userInfo.name !== ""
+    ) {
+      setLoading(true);
       try {
-        const {
-          user: { accessToken, email },
-        }: any = await createUserWithEmailAndPassword(
+        const { user }: any = await createUserWithEmailAndPassword(
           auth,
           userInfo.email,
           userInfo.password
         );
+        await updateProfile(user, {
+          displayName: userInfo.name,
+          photoURL: `https://robohash.org/${userInfo.name.trim()}`,
+        });
+        const { email, displayName, photoURL }: any = auth.currentUser;
+
         await AsyncStorage.setItem(
           "user",
-          JSON.stringify({ accessToken, email })
+          JSON.stringify({ email, displayName, photoURL })
         );
-        dispatch(createAuth({ email, accessToken }));
+        dispatch(createAuth({ email, displayName, photoURL }));
+        setLoading(false);
       } catch (err: any) {
-        console.log(err.code, err.message);
         setErrMessage("Email is already in use");
+        setLoading(false);
       }
     } else {
       setErrMessage("You must fill all fields");
@@ -44,6 +56,16 @@ export const Signup = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.container}>
       <Text value="Sign Up" h2 style={{ marginBottom: 30 }} />
+      <Input
+        label="Name"
+        containerStyle={styles.inputContainer}
+        inputStyle={styles.input}
+        labelStyle={styles.labelStyle}
+        onChangeText={({ nativeEvent: { text } }) => {
+          setUserInfo((prev) => ({ ...prev, name: text }));
+          setErrMessage("");
+        }}
+      />
       <Input
         label="Email"
         containerStyle={styles.inputContainer}
@@ -63,27 +85,33 @@ export const Signup = ({ navigation }: { navigation: any }) => {
         }}
         inputStyle={styles.input}
         labelStyle={styles.labelStyle}
+        secureTextEntry
         onChangeText={({ nativeEvent: { text } }) => {
           setUserInfo((prev) => ({ ...prev, password: text }));
           setErrMessage("");
         }}
       />
       <Text value={errMessage} style={styles.errMessage} />
-      <TouchableOpacity style={styles.btn} onPress={sendRequest}>
-        <Icon
-          onPress={() => null}
-          iconName={"login"}
-          color={"black"}
-          raised={false}
-        />
-        <Text value="Sign Up" p style={{ fontSize: 18 }} />
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.btn}
+      <Button
+        title="Sign Up"
+        onPress={sendRequest}
+        loading={loading}
+        buttonStyle={{ ...styles.buttonStyle, backgroundColor: "orange" }}
+        containerStyle={{
+          ...styles.btn,
+          height: 50,
+          backgroundColor: "orange",
+        }}
+        titleStyle={{ ...styles.titleStyle, color: "#fff" }}
+      />
+      <Button
+        title="Log In"
         onPress={() => navigation.navigate("Log In")}
-      >
-        <Text value="Log in" p style={{ fontSize: 18 }} />
-      </TouchableOpacity>
+        loading={false}
+        buttonStyle={styles.buttonStyle}
+        containerStyle={styles.btn}
+        titleStyle={styles.titleStyle}
+      />
     </View>
   );
 };
@@ -97,12 +125,21 @@ const styles = StyleSheet.create({
   btn: {
     width: "49%",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     color: "black",
     backgroundColor: "white",
     borderRadius: 15,
-    padding: 20,
+    marginBottom: 10,
+  },
+  buttonStyle: {
+    backgroundColor: "#fff",
+    borderWidth: 0,
+    width: "100%",
+  },
+  titleStyle: {
+    color: "orange",
+    fontSize: 18,
   },
   coupleContainer: {
     width: "100%",

@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { View, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useDispatch } from "react-redux";
 import { createAuth } from "../../store/actions";
-import { Text, Icon, Input } from "../../design";
+import { Text, Input, Button } from "../../design";
 import { auth as fireBaseAuth } from "../../../firebaseConfig";
 type loginProps = {
   navigation: any;
@@ -16,11 +16,13 @@ export const LogInScreen: FC<loginProps> = ({ navigation }) => {
     password: "",
   });
   const [errMessage, setErrMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const signIn = async () => {
     if (userInfo.email !== "" && userInfo.password !== "") {
       try {
+        setLoading(true);
         const {
-          user: { accessToken, email },
+          user: { email, displayName, photoURL },
         }: any = await signInWithEmailAndPassword(
           fireBaseAuth,
           userInfo.email,
@@ -28,11 +30,13 @@ export const LogInScreen: FC<loginProps> = ({ navigation }) => {
         );
         await AsyncStorage.setItem(
           "user",
-          JSON.stringify({ accessToken, email })
+          JSON.stringify({ email, displayName, photoURL })
         );
-        dispatch(createAuth({ email, accessToken }));
+        dispatch(createAuth({ email, displayName, photoURL }));
+        setLoading(false);
       } catch (err: any) {
         setErrMessage("Invalid Email or Password");
+        setLoading(false);
       }
     } else {
       setErrMessage("You must fill all fields");
@@ -51,6 +55,7 @@ export const LogInScreen: FC<loginProps> = ({ navigation }) => {
         containerStyle={styles.inputContainer}
         inputStyle={styles.input}
         labelStyle={styles.labelStyle}
+        keyboardType={"email-address"}
         onChangeText={({ nativeEvent: { text } }) => {
           setErrMessage("");
           setUserInfo((prev) => ({ ...prev, email: text }));
@@ -65,27 +70,33 @@ export const LogInScreen: FC<loginProps> = ({ navigation }) => {
         }}
         inputStyle={styles.input}
         labelStyle={styles.labelStyle}
+        secureTextEntry
         onChangeText={({ nativeEvent: { text } }) => {
           setErrMessage("");
           setUserInfo((prev) => ({ ...prev, password: text }));
         }}
       />
       <Text value={errMessage} style={styles.errMessage} />
-      <TouchableOpacity style={styles.btn} onPress={sendRequest}>
-        <Icon
-          onPress={() => null}
-          iconName={"login"}
-          color={"black"}
-          raised={false}
-        />
-        <Text value="Log In" p style={{ fontSize: 18 }} />
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.btn}
+      <Button
+        title="Log In"
+        onPress={sendRequest}
+        loading={loading}
+        buttonStyle={{ ...styles.buttonStyle, backgroundColor: "orange" }}
+        containerStyle={{
+          ...styles.btn,
+          height: 50,
+          backgroundColor: "orange",
+        }}
+        titleStyle={{ ...styles.titleStyle, color: "#fff" }}
+      />
+      <Button
+        title="Create Account"
         onPress={() => navigation.navigate("Sign Up")}
-      >
-        <Text value="Create Account" p style={{ fontSize: 18 }} />
-      </TouchableOpacity>
+        loading={false}
+        buttonStyle={styles.buttonStyle}
+        containerStyle={styles.btn}
+        titleStyle={styles.titleStyle}
+      />
     </View>
   );
 };
@@ -99,12 +110,21 @@ const styles = StyleSheet.create({
   btn: {
     width: "49%",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     color: "black",
     backgroundColor: "white",
     borderRadius: 15,
-    padding: 20,
+    marginBottom: 10,
+  },
+  buttonStyle: {
+    backgroundColor: "#fff",
+    borderWidth: 0,
+    width: "100%",
+  },
+  titleStyle: {
+    color: "orange",
+    fontSize: 18,
   },
   coupleContainer: {
     width: "100%",

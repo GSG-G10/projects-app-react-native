@@ -24,11 +24,14 @@ export const Navigation = () => {
     if (userInfo) {
       setUser(JSON.parse(userInfo));
       dispatch(createAuth(JSON.parse(userInfo)));
+    } else {
+      setUser({});
     }
   };
   useEffect(() => {
     checkUserInStorage();
-  }, []);
+    return () => undefined; // cleanup
+  }, [auth]);
   useEffect(() => {
     if (auth) {
       return setUser(auth);
