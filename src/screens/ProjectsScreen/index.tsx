@@ -34,7 +34,6 @@ type ProjectsScreenProps = {
 
 export const ProjectsScreen: FC<ProjectsScreenProps> = ({ navigation }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [logged, setLogged] = useState(false);
   // icons
   const icons: Icons = {
     Completed: "checkcircleo",
