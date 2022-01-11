@@ -3,7 +3,7 @@ export const setProjects = (data: Array<{}>) => ({
   payload: data,
 });
 
-export const createAuth = (data: { email: string; accessToken: string }) => {
+export const createAuth = (data: { email: string; displayName : string; photoURL: string; }) => {
   return {
     type: "CREATE_AUTH",
     payload: data,

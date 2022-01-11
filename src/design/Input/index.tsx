@@ -9,6 +9,7 @@ type InputProps = {
   onChangeText: (args: any) => void;
   labelStyle: Object;
   keyboardType?: any;
+  secureTextEntry?: boolean;
 };
 export const Input: FC<InputProps> = ({
   labelStyle,
@@ -17,6 +18,7 @@ export const Input: FC<InputProps> = ({
   inputStyle,
   onChangeText,
   keyboardType,
+  secureTextEntry,
 }) => {
   return (
     <View style={containerStyle}>
@@ -25,6 +27,7 @@ export const Input: FC<InputProps> = ({
         style={inputStyle}
         onChange={onChangeText}
         keyboardType={keyboardType}
+        secureTextEntry={secureTextEntry || false}
       />
     </View>
   );
